@@ -15,16 +15,10 @@ const App = () => {
   let [Edit, setEdit] = useState(false);
   let [Editto, setEditto] = useState({});
   let [status, setstatus] = useState("pending")
- let [tofilter, settofilter] = useState(false);
  const [filteredTodos, setfilteredTodos] = useState(MyTodo);
- const [filter, setFilter] = useState("all");
+ const [filter, setFilter] = useState("All");
 
   // -------------------------------------------<>---------------------------------------------------------
-  console.log(MyTodo);
-  console.log("editing",Editto);
-
-  console.log("updated",MyTodo);
-  
   
 
   // -------------------------------------------<>---------------------------------------------------------
@@ -46,8 +40,6 @@ const App = () => {
           setEditto,
           status,
           setstatus,
-          tofilter,
-          settofilter,
           filteredTodos,
           setfilteredTodos,
           filter, setFilter  

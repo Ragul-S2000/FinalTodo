@@ -49,20 +49,22 @@ const Todolist = () => {
   }
   // -------------------------------------------------------<>---------------------------------------------------------------------------
 
-useEffect(()=>{
-  let filtered= MyTodo.filter(todo =>{
-    if(filter === "all"){
-      return todo
-    }else if(filter === "pending"){
-      return todo.status === "pending"
-    }else if(filter === "completed"){
-      return todo.status === "completed"
-    }else if(filter === "inprogress"){
-      return todo.status === "inprogress"
-    }
-  })
-  setfilteredTodos(filtered)
-})
+  useEffect(() => {
+    console.log("MyTodo:", MyTodo);
+    console.log("Filter:", filter);
+  
+    let filtered = MyTodo.filter(todo => {
+      if (filter === "All") {
+        return true
+      } else {
+        return todo.status === filter;
+      }
+    });
+  
+    console.log("Filtered Todos:", filtered);
+    setfilteredTodos(filtered);
+  }, [MyTodo, filter]);
+  
 
 
 

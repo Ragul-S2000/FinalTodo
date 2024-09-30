@@ -15,7 +15,7 @@ const Filter = () => {
                         <div className="mt-3 mb-5 py-0 d-flex flex-row position-absolute end-0 me-5">
                             <p>FILTER By STATUS:</p>
                             <select className="py-0 mb-5" value={filter} onChange={(e)=>setFilter(e.target.value)}>
-                                <option value="">All</option>
+                                <option value="All">All</option>
                                 <option value="pending">Pending</option>
                                 <option value="completed">Completed</option>
                                 <option value="inprogress">In Progress</option>
