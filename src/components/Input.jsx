@@ -21,7 +21,7 @@ const Input = () => {
   const handleAdd = (e) => {
     e.preventDefault();
     let Todos = {
-      id: MyTodo.length,
+      id: MyTodo.length+1,
       TodoName,
         TodoDesc,
       status:status

@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import Input from "./components/Input";
 import Todolist from "./components/Todolist";
+import Filter from "./components/Filter";
 
 // -------------------------------------------<>---------------------------------------------------------
 const App = () => {
@@ -14,6 +15,9 @@ const App = () => {
   let [Edit, setEdit] = useState(false);
   let [Editto, setEditto] = useState({});
   let [status, setstatus] = useState("pending")
+ let [tofilter, settofilter] = useState(false);
+ const [filteredTodos, setfilteredTodos] = useState(MyTodo);
+ const [filter, setFilter] = useState("all");
 
   // -------------------------------------------<>---------------------------------------------------------
   console.log(MyTodo);
@@ -42,11 +46,16 @@ const App = () => {
           setEditto,
           status,
           setstatus,
-          
+          tofilter,
+          settofilter,
+          filteredTodos,
+          setfilteredTodos,
+          filter, setFilter  
         }}
       >
         <Header />
         <Input />
+        <Filter/>
       
         <div className="container-fluid ">
           <div className="row ">

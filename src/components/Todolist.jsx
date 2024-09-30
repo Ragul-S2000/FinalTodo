@@ -1,4 +1,4 @@
-import  { useContext } from 'react'
+import  { useContext, useEffect } from 'react'
 import  TodoContext  from '../components/TodoContex'
 
 const Todolist = () => {
@@ -14,7 +14,10 @@ const Todolist = () => {
     TodoDesc,
       setTodoDesc,
     status,
-    setstatus
+    setstatus,
+    filteredTodos,
+    setfilteredTodos,
+    filter, setFilter
   } = useContext(TodoContext);
 
   // -------------------------------------------------------<>---------------------------------------------------------------------------
@@ -26,8 +29,6 @@ const Todolist = () => {
       return todo;
     });
     setMyTodo(updatedTodos);
-    console.log("->",MyTodo);
-    
   }
 
   // -------------------------------------------------------<>---------------------------------------------------------------------------
@@ -48,10 +49,27 @@ const Todolist = () => {
   }
   // -------------------------------------------------------<>---------------------------------------------------------------------------
 
+useEffect(()=>{
+  let filtered= MyTodo.filter(todo =>{
+    if(filter === "all"){
+      return todo
+    }else if(filter === "pending"){
+      return todo.status === "pending"
+    }else if(filter === "completed"){
+      return todo.status === "completed"
+    }else if(filter === "inprogress"){
+      return todo.status === "inprogress"
+    }
+  })
+  setfilteredTodos(filtered)
+})
+
+
+
   return (
     <>
-      <div className="row border border-black col-12 mt-5  justify-content-center">
-        {MyTodo.map((todo) => (
+      <div className="row border border-black col-12 mt-5 justify-content-center">
+        {filteredTodos.map((todo) => (
           <div key={todo.id} className="card col-4">
             <p className="card-Name">Name:{todo.TodoName}</p>
                 <p className="card-Desc">Description:{todo.TodoDesc}</p>
